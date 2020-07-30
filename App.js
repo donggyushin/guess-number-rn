@@ -1,13 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Header from './components/Header';
-import StartGameScreen from './screens/StartGameScreen';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import Header from "./components/Header";
+import StartGameScreen from "./screens/StartGameScreen";
 
 export default function App() {
   return (
     <View style={styles.app}>
-      <Header title={'Guess A Number'} />
+      <Header title={"Guess A Number"} />
       <StartGameScreen />
       <StatusBar style="auto" />
     </View>
@@ -16,6 +16,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   app: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });
