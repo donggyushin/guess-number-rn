@@ -9,8 +9,9 @@ import {
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
+import Colors from "../constants/Colors";
 
-const StartGameScreen = () => {
+const StartGameScreen = ({ startGame }) => {
   const [number, setNumber] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
@@ -44,6 +45,7 @@ const StartGameScreen = () => {
     setSelectedNumber(number);
     setNumber("");
     setConfirmed(true);
+    hideKeyboard();
   };
 
   return (
@@ -69,7 +71,13 @@ const StartGameScreen = () => {
         </View>
         {confirmed && (
           <View style={styles.gameStartButton}>
-            <Button color="white" title="GAME START" />
+            <Button
+              onPress={() => {
+                startGame(selectedNumber);
+              }}
+              color="white"
+              title="GAME START"
+            />
           </View>
         )}
       </View>
@@ -80,7 +88,7 @@ const StartGameScreen = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#1f4068",
+    backgroundColor: Colors.mainColor,
     alignItems: "center",
     padding: 10,
   },
@@ -112,7 +120,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    backgroundColor: "#1f4068",
+    backgroundColor: Colors.mainColor,
     elevation: 5,
     padding: 20,
     borderRadius: 10,
