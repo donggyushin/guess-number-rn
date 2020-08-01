@@ -10,6 +10,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 import Colors from "../constants/Colors";
+import Styles from "../styles/Styles";
 
 const StartGameScreen = ({ startGame }) => {
   const [number, setNumber] = useState("");
@@ -52,7 +53,7 @@ const StartGameScreen = ({ startGame }) => {
     <TouchableWithoutFeedback onPress={hideKeyboard}>
       <View style={styles.screen}>
         <Text style={styles.text}>Start Game!</Text>
-        <View style={styles.card}>
+        <View style={Styles.card}>
           <TextInput
             value={number}
             keyboardType="number-pad"
@@ -131,7 +132,7 @@ const styles = StyleSheet.create({
   gameStartButton: {
     width: 250,
     paddingVertical: 10,
-    backgroundColor: "#0b2545",
+    backgroundColor: Colors.deepBlue,
     borderRadius: 8,
     marginTop: 20,
   },

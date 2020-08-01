@@ -9,6 +9,11 @@ export default function App() {
   const [gameMode, setGameMode] = useState(false);
   const [answer, setAnswer] = useState();
 
+  const restartGame = () => {
+    setGameMode(false);
+    setAnswer();
+  };
+
   const startGame = (number) => {
     setGameMode(true);
     setAnswer(number);
@@ -18,7 +23,7 @@ export default function App() {
     <View style={styles.app}>
       <Header title={"Guess A Number"} />
       {gameMode ? (
-        <GameScreen answer={answer} />
+        <GameScreen restartGame={restartGame} answer={answer} />
       ) : (
         <StartGameScreen startGame={startGame} />
       )}
